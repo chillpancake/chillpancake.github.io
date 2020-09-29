@@ -21,34 +21,17 @@ function draw() {
   
   for (let i = 0; i < bullets.length; i++) {
     push();
-    bullets[i].update();
-
-    strokeWeight(4);
-    stroke(82, 82, 82);
-    fill(240, 79, 84);
-    ellipse(bullets[i].x, bullets[i].y, bullets[i].radius, bullets[i].radius);
+    bullets[i].update(enemies);
     pop();
-
-    for (let j = 0; j < enemies.length; j++) {
-      if (dist(bullets[i].x, bullets[i].y, enemies[j].x, enemies[j].y) <= enemies[j].radius + bullets[i].radius) {
-        bullets[i].health -= 1;
-        enemies[j].health -= bullets[i].damage;
-      }
-    }
 
     if (bullets[i].health <= 0 ) {
       bullets.splice(i, 1)
     }
   }
-  
+
   for (let j = 0; j < enemies.length; j++) {
     push();
     enemies[j].update(player.x, player.y);
-
-    strokeWeight(4);
-    stroke(82, 82, 82);
-    fill(52, 235, 70);
-    ellipse(enemies[j].x, enemies[j].y, enemies[j].radius, enemies[j].radius);
     pop();
 
     if (enemies[j].health <= 0 ) {

@@ -10,6 +10,11 @@ class Enemy {
     this.angle = Math.atan2(playerY - this.y, playerX - this.x);
     this.x += Math.cos(this.angle) * this.movementSpeed;
     this.y += Math.sin(this.angle) * this.movementSpeed;
+
+    strokeWeight(4);
+    stroke(82, 82, 82);
+    fill(52, 235, 70);
+    ellipse(this.x, this.y, this.radius, this.radius);
   }
 }
 

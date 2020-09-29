@@ -8,12 +8,23 @@ class Bullet {
     this.health = health;
     this.damage = damage;
   }
-  update() {
+  update(enemies) {
     this.x += Math.cos(this.sentFromAngle) * this.movementSpeed;
     this.y += Math.sin(this.sentFromAngle) * this.movementSpeed;
+
+    strokeWeight(4);
+    stroke(82, 82, 82);
+    fill(240, 79, 84);
+    ellipse(this.x, this.y, this.radius, this.radius);
+
+    for (let j = 0; j < enemies.length; j++) {
+      if (dist(this.x, this.y, enemies[j].x, enemies[j].y) < enemies[j].radius + this.radius) {
+        this.health -= 1;
+        enemies[j].health -= this.damage;
+      }
+    }
   }
 }
-
 
 function mouseClicked() {
   bullet = new Bullet(player.x, player.y, Math.atan2(mouseY - player.y, mouseX - player.x), 25, 3, 1, 1);
