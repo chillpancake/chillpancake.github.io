@@ -6,7 +6,7 @@ class Player {
     this.angle = 0;
     this.movementSpeed = initialMovementSpeed;
     this.maxHealth = maxHealth;
-    this.health = 10;
+    this.health = maxHealth;
     this.healthRegenFactor = 1;
   }
   update() {

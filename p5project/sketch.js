@@ -7,7 +7,7 @@ function setup() {
   ellipseMode(RADIUS);
   textAlign(CENTER, CENTER);
   
-  player = new Player(80, 80, 25, 3, 500);
+  player = new Player(80, 80, 25, 3, 1000);
 }
 
 function draw() {

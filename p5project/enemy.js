@@ -24,8 +24,8 @@ class Enemy {
 }
 
 function createEnemy() {
-  enemy = new Enemy(random(0, 600), random(0, 600), random(15, 30), 0);
+  enemy = new Enemy(random(0, 600), random(0, 600), random(15, 30), random(2, 4));
   enemies.push(enemy);
 }
 
-setInterval(createEnemy, 10000);
+setInterval(createEnemy, 1000);
