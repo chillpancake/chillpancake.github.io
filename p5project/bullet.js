@@ -27,6 +27,6 @@ class Bullet {
 }
 
 function mouseClicked() {
-  bullet = new Bullet(player.x, player.y, Math.atan2(mouseY - player.y, mouseX - player.x), 25, 3, 1, 1);
+  bullet = new Bullet(player.x, player.y, Math.atan2(mouseY - player.y, mouseX - player.x), 13, 3, 1, 1);
   bullets.push(bullet);
 }

@@ -4,9 +4,10 @@ let enemies = [];
 function setup() {
   createCanvas(600, 600);
   rectMode(CENTER);
-  textAlign(CENTER, CENTER)
+  ellipseMode(RADIUS);
+  textAlign(CENTER, CENTER);
   
-  player = new Player(80, 80, 0, 3, 100);
+  player = new Player(80, 80, 25, 3, 500);
 }
 
 function draw() {
@@ -31,7 +32,7 @@ function draw() {
 
   for (let j = 0; j < enemies.length; j++) {
     push();
-    enemies[j].update(player.x, player.y);
+    enemies[j].update(player);
     pop();
 
     if (enemies[j].health <= 0 ) {
@@ -42,6 +43,6 @@ function draw() {
   push()
   textSize(24);
   fill(255, 0, 0);
-  text(player.health, player.x, player.y + 40);
+  text(round(player.health / player.maxHealth * 100) + '%', player.x, player.y + 40);
   pop()
 }
