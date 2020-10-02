@@ -1,3 +1,5 @@
+let bullets = [];
+
 class Bullet {
   constructor(sentFromX, sentFromY, sentFromAngleDeg, radius, movementSpeed, health, damage) {
     this.x = sentFromX;

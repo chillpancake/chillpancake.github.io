@@ -1,11 +1,12 @@
-let bullets = [];
-let enemies = [];
-
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(windowWidth, windowHeight);
   rectMode(CENTER);
   ellipseMode(RADIUS);
   textAlign(CENTER, CENTER);
+
+  button = createButton('click me');
+  button.position(19, 19);
+  button.mousePressed(createEnemy);
   
   player = new Player(80, 80, 25, 3, 1000);
 }
@@ -39,10 +40,8 @@ function draw() {
       enemies.splice(j, 1)
     }
   }
+}
 
-  push()
-  textSize(24);
-  fill(255, 0, 0);
-  text(round(player.health / player.maxHealth * 100) + '%', player.x, player.y + 40);
-  pop()
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }

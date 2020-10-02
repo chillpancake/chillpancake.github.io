@@ -1,3 +1,5 @@
+let enemies = [];
+
 class Enemy {
   constructor(initialX, initialY, radius, movementSpeed) {
     this.x = initialX;
@@ -24,7 +26,7 @@ class Enemy {
 }
 
 function createEnemy() {
-  enemy = new Enemy(random(0, 600), random(0, 600), random(15, 30), random(2, 4));
+  enemy = new Enemy(random(0, windowWidth), random(0, windowHeight), random(15, 30), random(2, 4));
   enemies.push(enemy);
 }
 

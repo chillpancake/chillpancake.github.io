@@ -27,15 +27,20 @@ class Player {
     }
   
     translate(this.x, this.y);
+
+    textSize(24);
+    fill(255, 0, 0);
+    text(round(this.health / this.maxHealth * 100) + '%', 0, 40);
+
     rotate(this.angle);
   
     strokeWeight(4);
-    stroke(color(82, 82, 82));
-    fill(color(153, 153, 153));
+    stroke(82, 82, 82);
+    fill(153, 153, 153);
     rect(25, 0, 50, 25);
   
-    stroke(color(82, 82, 82));
-    fill(color(0, 176, 225));
+    stroke(82, 82, 82);
+    fill(0, 176, 225);
     ellipse(0, 0, this.radius, this.radius);
   
     this.angle = Math.atan2(mouseY - this.y, mouseX - this.x);
