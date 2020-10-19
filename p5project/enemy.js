@@ -14,14 +14,16 @@ class Enemy {
     this.x += Math.cos(this.angle) * this.movementSpeed;
     this.y += Math.sin(this.angle) * this.movementSpeed;
 
+    if (dist(this.x, this.y, player.x, player.y) < player.radius + this.radius && player.health > 0) {
+      player.health -= this.damage;
+    }
+  }
+
+  show() {
     strokeWeight(4);
     stroke(82, 82, 82);
     fill(52, 235, 70);
     ellipse(this.x, this.y, this.radius, this.radius);
-
-    if (dist(this.x, this.y, player.x, player.y) < player.radius + this.radius && player.health > 0) {
-      player.health -= this.damage;
-    }
   }
 }
 

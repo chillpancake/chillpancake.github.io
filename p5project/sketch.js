@@ -4,9 +4,7 @@ function setup() {
   ellipseMode(RADIUS);
   textAlign(CENTER, CENTER);
 
-  button = createButton('click me');
-  button.position(19, 19);
-  button.mousePressed(createEnemy);
+  createButtons()
   
   player = new Player(80, 80, 25, 3, 1000);
 }
@@ -19,11 +17,13 @@ function draw() {
   
   push();
   player.update()
+  player.show()
   pop();
   
   for (let i = 0; i < bullets.length; i++) {
     push();
     bullets[i].update(enemies);
+    bullets[i].show()
     pop();
 
     if (bullets[i].health <= 0 ) {
@@ -34,6 +34,7 @@ function draw() {
   for (let j = 0; j < enemies.length; j++) {
     push();
     enemies[j].update(player);
+    enemies[j].show()
     pop();
 
     if (enemies[j].health <= 0 ) {

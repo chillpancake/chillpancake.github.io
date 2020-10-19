@@ -27,7 +27,15 @@ class Player {
     }
   
     translate(this.x, this.y);
+  
+    this.angle = Math.atan2(mouseY - this.y, mouseX - this.x);
 
+    if (this.health < this.maxHealth) {
+      this.health += this.healthRegenFactor;
+    }
+  }
+
+  show() {
     textSize(24);
     fill(255, 0, 0);
     text(round(this.health / this.maxHealth * 100) + '%', 0, 40);
@@ -42,11 +50,5 @@ class Player {
     stroke(82, 82, 82);
     fill(0, 176, 225);
     ellipse(0, 0, this.radius, this.radius);
-  
-    this.angle = Math.atan2(mouseY - this.y, mouseX - this.x);
-
-    if (this.health < this.maxHealth) {
-      this.health += this.healthRegenFactor;
-    }
   }
 }
