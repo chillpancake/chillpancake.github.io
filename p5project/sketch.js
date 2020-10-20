@@ -14,6 +14,8 @@ function draw() {
   push();
   drawGrid();
   pop();
+
+  updateButtonsPos(buttons)
   
   push();
   player.update()
@@ -26,7 +28,8 @@ function draw() {
     bullets[i].show()
     pop();
 
-    if (bullets[i].health <= 0 ) {
+    if (bullets[i].health <= 0 || bullets[i].x - bullets[i].radius > windowWidth || bullets[i].x + bullets[i].radius < 0 
+      || bullets[i].y - bullets[i].radius > windowHeight || bullets[i].y + bullets[i].radius < 0) {
       bullets.splice(i, 1)
     }
   }
